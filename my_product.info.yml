@@ -1,0 +1,6 @@
+name: My Product Module
+description: "Provides a custom content type for products."
+type: module
+core_version_requirement: ^8 || ^9 || ^10
+autoload:
+  path: src

@@ -1,0 +1,21 @@
+<?php
+
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\my_product\Entity\Product;
+
+/**
+ * Implements hook_entity_type_build().
+ */
+function my_product_entity_type_build(EntityTypeManagerInterface $entity_type_manager) {
+  $entity_type = $entity_type_manager->getDefinition('node');
+  $entity_type->addBundle('product');
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function my_product_entity_base_field_info($entity_type) {
+  if ($entity_type->id() === 'node') {
+    return []; // Field definitions are already defined in the Product class
+  }
+}
